@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAgent-Eval: Cross-Model Comparison</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+  .subtitle { color: #666; margin-bottom: 2rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: white; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #2563eb; }
+  .stat-label { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+  .stat-ci { font-size: 0.75rem; color: #999; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f8fafc; font-weight: 600; font-size: 0.85rem; color: #555; text-transform: uppercase; }
+  td { font-size: 0.9rem; }
+  .highlight { background: #fef3c7; }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .badge-red { background: #fee2e2; color: #dc2626; }
+  .badge-yellow { background: #fef3c7; color: #d97706; }
+  .badge-blue { background: #dbeafe; color: #2563eb; }
+  .badge-gray { background: #f3f4f6; color: #6b7280; }
+  .truncate { max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>FinAgent-Eval Scorecard</h1>
+<p class="subtitle">Cross-Model Comparison</p>
+
+
+
+<h2>Cross-Model Comparison</h2>
+<table>
+  <tr><th>Model</th><th>Overall ANLS</th><th>Overall EM</th>
+  <th>chart_interpretation</th><th>extractive</th><th>layout_understanding</th><th>numerical_reasoning</th>
+  </tr>
+  
+  <tr>
+    <td><strong>Donut</strong></td>
+    <td>0.1021</td>
+    <td>0.0756</td>
+    
+    <td>0.0000</td>
+    
+    <td>0.1516</td>
+    
+    <td>0.0511</td>
+    
+    <td>0.0000</td>
+    
+  </tr>
+  
+  <tr>
+    <td><strong>LayoutLMv3</strong></td>
+    <td>0.1472</td>
+    <td>0.1335</td>
+    
+    <td>0.1029</td>
+    
+    <td>0.1834</td>
+    
+    <td>0.1605</td>
+    
+    <td>0.0088</td>
+    
+  </tr>
+  
+  <tr>
+    <td><strong>OCR+RoBERTa</strong></td>
+    <td>0.1108</td>
+    <td>0.0856</td>
+    
+    <td>0.1831</td>
+    
+    <td>0.1155</td>
+    
+    <td>0.1777</td>
+    
+    <td>0.0000</td>
+    
+  </tr>
+  
+  <tr>
+    <td><strong>Pix2Struct</strong></td>
+    <td>0.1284</td>
+    <td>0.1134</td>
+    
+    <td>0.1176</td>
+    
+    <td>0.1826</td>
+    
+    <td>0.0556</td>
+    
+    <td>0.0092</td>
+    
+  </tr>
+  
+  <tr>
+    <td><strong>Qwen2.5-VL-7B-Instruct</strong></td>
+    <td>0.6368</td>
+    <td>0.5945</td>
+    
+    <td>0.6697</td>
+    
+    <td>0.6772</td>
+    
+    <td>0.9649</td>
+    
+    <td>0.1138</td>
+    
+  </tr>
+  
+</table>
+
+
+<h2>Donut</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">10.2%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">7.6%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">chart_interpretation</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+
+<h2>LayoutLMv3</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">14.7%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">13.4%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">numerical_reasoning</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+
+<h2>OCR+RoBERTa</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">11.1%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">8.6%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">numerical_reasoning</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+
+<h2>Pix2Struct</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">12.8%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">11.3%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">numerical_reasoning</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+
+<h2>Qwen2.5-VL-7B-Instruct</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">63.7%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">59.5%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">numerical_reasoning</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+
+
+
+
+<div class="footer">
+  Generated by FinAgent-Eval | 2026-05-10 15:42
+</div>
+
+</div>
+</body>
+</html>

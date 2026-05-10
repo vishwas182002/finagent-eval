@@ -1,0 +1,132 @@
+{
+  "model": "Donut",
+  "total_questions": 397,
+  "overall_anls": 0.1021,
+  "overall_anls_ci": [
+    0.0758,
+    0.1319
+  ],
+  "overall_exact_match": 0.0756,
+  "overall_exact_match_ci": [
+    0.0529,
+    0.1033
+  ],
+  "category_breakdown": {
+    "chart_interpretation": {
+      "anls": 0.0,
+      "anls_ci": [
+        0.0,
+        0.0
+      ],
+      "exact_match": 0.0,
+      "exact_match_ci": [
+        0.0,
+        0.0
+      ],
+      "n": 17
+    },
+    "extractive": {
+      "anls": 0.1516,
+      "anls_ci": [
+        0.1106,
+        0.1937
+      ],
+      "exact_match": 0.1193,
+      "exact_match_ci": [
+        0.0782,
+        0.1605
+      ],
+      "n": 243
+    },
+    "layout_understanding": {
+      "anls": 0.0511,
+      "anls_ci": [
+        0.0119,
+        0.1032
+      ],
+      "exact_match": 0.0139,
+      "exact_match_ci": [
+        0.0,
+        0.0417
+      ],
+      "n": 72
+    },
+    "numerical_reasoning": {
+      "anls": 0.0,
+      "anls_ci": [
+        0.0,
+        0.0
+      ],
+      "exact_match": 0.0,
+      "exact_match_ci": [
+        0.0,
+        0.0
+      ],
+      "n": 65
+    }
+  },
+  "weakest_category": "chart_interpretation",
+  "failure_mode_distribution": {
+    "manual_diagnosis_required": 184,
+    "numeric_mismatch": 174,
+    "wrong_year": 5
+  },
+  "total_failures": 363,
+  "top_5_worst_failures": [
+    {
+      "task_id": "AAPL_003",
+      "ticker": "AAPL",
+      "category": "numerical_reasoning",
+      "question": "By what percentage did total net sales increase from 2024 to 2025?",
+      "gold_answer": "15.7%",
+      "prediction": "$13,756",
+      "failure_label": "numeric_mismatch",
+      "anls": 0.0,
+      "image_path": "data/track_a/images/AAPL/AAPL_2025_income_statement_financial_table.png"
+    },
+    {
+      "task_id": "AAPL_004",
+      "ticker": "AAPL",
+      "category": "layout_understanding",
+      "question": "Which line item appears immediately below \"Research and development\" in the operating expenses section?",
+      "gold_answer": "Selling, general and administrative",
+      "prediction": "10,887",
+      "failure_label": "manual_diagnosis_required",
+      "anls": 0.0,
+      "image_path": "data/track_a/images/AAPL/AAPL_2025_income_statement_financial_table.png"
+    },
+    {
+      "task_id": "AAPL_005",
+      "ticker": "AAPL",
+      "category": "extractive",
+      "question": "Which contributed more to total net sales in 2025: Products or Services?",
+      "gold_answer": "Products",
+      "prediction": "$ 113,743",
+      "failure_label": "manual_diagnosis_required",
+      "anls": 0.0,
+      "image_path": "data/track_a/images/AAPL/AAPL_2025_income_statement_financial_table.png"
+    },
+    {
+      "task_id": "AAPL_007",
+      "ticker": "AAPL",
+      "category": "extractive",
+      "question": "What was the total current liabilities as of December 27, 2025?",
+      "gold_answer": "162,367",
+      "prediction": "399,297",
+      "failure_label": "numeric_mismatch",
+      "anls": 0.0,
+      "image_path": "data/track_a/images/AAPL/AAPL_2025_balance_sheet_financial_table.png"
+    },
+    {
+      "task_id": "AAPL_008",
+      "ticker": "AAPL",
+      "category": "numerical_reasoning",
+      "question": "By what percentage did total assets increase from September 2025 to December 2025?",
+      "gold_answer": "5.6%",
+      "prediction": "399,297",
+      "failure_label": "numeric_mismatch",
+      "anls": 0.0,
+      "image_path": "data/track_a/images/AAPL/AAPL_2025_balance_sheet_financial_table.png"
+    }
+  ]
+}
