@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAgent-Eval: Qwen2.5-VL-7B-Instruct</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+  .subtitle { color: #666; margin-bottom: 2rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: white; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #2563eb; }
+  .stat-label { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+  .stat-ci { font-size: 0.75rem; color: #999; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f8fafc; font-weight: 600; font-size: 0.85rem; color: #555; text-transform: uppercase; }
+  td { font-size: 0.9rem; }
+  .highlight { background: #fef3c7; }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .badge-red { background: #fee2e2; color: #dc2626; }
+  .badge-yellow { background: #fef3c7; color: #d97706; }
+  .badge-blue { background: #dbeafe; color: #2563eb; }
+  .badge-gray { background: #f3f4f6; color: #6b7280; }
+  .truncate { max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>FinAgent-Eval Scorecard</h1>
+<p class="subtitle">Qwen2.5-VL-7B-Instruct</p>
+
+
+
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">63.7%</div>
+    <div class="stat-label">Overall ANLS</div>
+    <div class="stat-ci">95% CI: [59.1, 68.2]</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">59.5%</div>
+    <div class="stat-label">Exact Match</div>
+    <div class="stat-ci">95% CI: [54.7, 64.5]</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">397</div>
+    <div class="stat-label">Questions</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">numerical_reasoning</div>
+    <div class="stat-label">Weakest Category</div>
+  </div>
+</div>
+
+<h2>Category Breakdown</h2>
+<table>
+  <tr><th>Category</th><th>N</th><th>ANLS</th><th>95% CI</th><th>Exact Match</th><th>95% CI</th></tr>
+  
+  <tr >
+    <td>chart_interpretation</td>
+    <td>17</td>
+    <td>0.6697</td>
+    <td>[0.4583, 0.8769]</td>
+    <td>0.5294</td>
+    <td>[0.2941, 0.7647]</td>
+  </tr>
+  
+  <tr >
+    <td>extractive</td>
+    <td>243</td>
+    <td>0.6772</td>
+    <td>[0.6238, 0.7319]</td>
+    <td>0.6626</td>
+    <td>[0.6049, 0.7243]</td>
+  </tr>
+  
+  <tr >
+    <td>layout_understanding</td>
+    <td>72</td>
+    <td>0.9649</td>
+    <td>[0.9222, 0.9976]</td>
+    <td>0.9028</td>
+    <td>[0.8333, 0.9583]</td>
+  </tr>
+  
+  <tr class="highlight">
+    <td>numerical_reasoning</td>
+    <td>65</td>
+    <td>0.1138</td>
+    <td>[0.0585, 0.1846]</td>
+    <td>0.0154</td>
+    <td>[0.0000, 0.0462]</td>
+  </tr>
+  
+</table>
+
+<h2>Failure Mode Distribution</h2>
+<table>
+  <tr><th>Failure Mode</th><th>Count</th><th>% of Failures</th></tr>
+  
+  <tr>
+    <td><span class="badge badge-gray">manual_diagnosis_required</span></td>
+    <td>104</td>
+    <td>64.6%</td>
+  </tr>
+  
+  <tr>
+    <td><span class="badge badge-red">numeric_mismatch</span></td>
+    <td>57</td>
+    <td>35.4%</td>
+  </tr>
+  
+</table>
+
+<h2>Top 5 Worst Failures</h2>
+<table>
+  <tr><th>Task ID</th><th>Category</th><th>Question</th><th>Gold</th><th>Prediction</th><th>Label</th></tr>
+  
+  <tr>
+    <td>AAPL_003</td>
+    <td>numerical_reasoning</td>
+    <td class="truncate">By what percentage did total net sales increase from 2024 to 2025?</td>
+    <td>15.7%</td>
+    <td class="truncate">10%</td>
+    <td><span class="badge badge-red">numeric_mismatch</span></td>
+  </tr>
+  
+  <tr>
+    <td>AAPL_008</td>
+    <td>numerical_reasoning</td>
+    <td class="truncate">By what percentage did total assets increase from September 2025 to December 2025?</td>
+    <td>5.6%</td>
+    <td class="truncate">1.8%</td>
+    <td><span class="badge badge-red">numeric_mismatch</span></td>
+  </tr>
+  
+  <tr>
+    <td>AAPL_012</td>
+    <td>extractive</td>
+    <td class="truncate">What was the cash used in financing activities for the three months ended December 28, 2024?</td>
+    <td>(39,371)</td>
+    <td class="truncate">$38,654</td>
+    <td><span class="badge badge-red">numeric_mismatch</span></td>
+  </tr>
+  
+  <tr>
+    <td>AAPL_013</td>
+    <td>numerical_reasoning</td>
+    <td class="truncate">By what percentage did cash generated by operating activities increase from 2024 to 2025?</td>
+    <td>80.1%</td>
+    <td class="truncate">83%</td>
+    <td><span class="badge badge-red">numeric_mismatch</span></td>
+  </tr>
+  
+  <tr>
+    <td>AAPL_016</td>
+    <td>extractive</td>
+    <td class="truncate">What was the net sales for iPhone in 2025?</td>
+    <td>85,269</td>
+    <td class="truncate">$85,269 million</td>
+    <td><span class="badge badge-red">manual_diagnosis_required</span></td>
+  </tr>
+  
+</table>
+
+
+
+<div class="footer">
+  Generated by FinAgent-Eval | 2026-05-10 14:02
+</div>
+
+</div>
+</body>
+</html>

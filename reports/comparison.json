@@ -1,0 +1,55 @@
+{
+  "categories": [
+    "chart_interpretation",
+    "extractive",
+    "layout_understanding",
+    "numerical_reasoning"
+  ],
+  "models": [
+    {
+      "model": "Donut",
+      "overall_anls": 0.1021,
+      "overall_exact_match": 0.0756,
+      "chart_interpretation_anls": 0.0,
+      "extractive_anls": 0.1516,
+      "layout_understanding_anls": 0.0511,
+      "numerical_reasoning_anls": 0.0
+    },
+    {
+      "model": "LayoutLMv3",
+      "overall_anls": 0.1472,
+      "overall_exact_match": 0.1335,
+      "chart_interpretation_anls": 0.1029,
+      "extractive_anls": 0.1834,
+      "layout_understanding_anls": 0.1605,
+      "numerical_reasoning_anls": 0.0088
+    },
+    {
+      "model": "OCR+RoBERTa",
+      "overall_anls": 0.1108,
+      "overall_exact_match": 0.0856,
+      "chart_interpretation_anls": 0.1831,
+      "extractive_anls": 0.1155,
+      "layout_understanding_anls": 0.1777,
+      "numerical_reasoning_anls": 0.0
+    },
+    {
+      "model": "Pix2Struct",
+      "overall_anls": 0.1284,
+      "overall_exact_match": 0.1134,
+      "chart_interpretation_anls": 0.1176,
+      "extractive_anls": 0.1826,
+      "layout_understanding_anls": 0.0556,
+      "numerical_reasoning_anls": 0.0092
+    },
+    {
+      "model": "Qwen2.5-VL-7B-Instruct",
+      "overall_anls": 0.6368,
+      "overall_exact_match": 0.5945,
+      "chart_interpretation_anls": 0.6697,
+      "extractive_anls": 0.6772,
+      "layout_understanding_anls": 0.9649,
+      "numerical_reasoning_anls": 0.1138
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAgent-Eval: {{ title }}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; padding: 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; }
+  .subtitle { color: #666; margin-bottom: 2rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card { background: white; border-radius: 8px; padding: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .stat-value { font-size: 2rem; font-weight: 700; color: #2563eb; }
+  .stat-label { font-size: 0.85rem; color: #666; margin-top: 0.3rem; }
+  .stat-ci { font-size: 0.75rem; color: #999; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+  th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #f8fafc; font-weight: 600; font-size: 0.85rem; color: #555; text-transform: uppercase; }
+  td { font-size: 0.9rem; }
+  .highlight { background: #fef3c7; }
+  .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .badge-red { background: #fee2e2; color: #dc2626; }
+  .badge-yellow { background: #fef3c7; color: #d97706; }
+  .badge-blue { background: #dbeafe; color: #2563eb; }
+  .badge-gray { background: #f3f4f6; color: #6b7280; }
+  .truncate { max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>FinAgent-Eval Scorecard</h1>
+<p class="subtitle">{{ title }}</p>
+
+{% if scorecards|length == 1 %}
+{% set sc = scorecards[0] %}
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">{{ "%.1f"|format(sc.overall_anls * 100) }}%</div>
+    <div class="stat-label">Overall ANLS</div>
+    <div class="stat-ci">95% CI: [{{ "%.1f"|format(sc.overall_anls_ci[0] * 100) }}, {{ "%.1f"|format(sc.overall_anls_ci[1] * 100) }}]</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ "%.1f"|format(sc.overall_exact_match * 100) }}%</div>
+    <div class="stat-label">Exact Match</div>
+    <div class="stat-ci">95% CI: [{{ "%.1f"|format(sc.overall_exact_match_ci[0] * 100) }}, {{ "%.1f"|format(sc.overall_exact_match_ci[1] * 100) }}]</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ sc.total_questions }}</div>
+    <div class="stat-label">Questions</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ sc.weakest_category }}</div>
+    <div class="stat-label">Weakest Category</div>
+  </div>
+</div>
+
+<h2>Category Breakdown</h2>
+<table>
+  <tr><th>Category</th><th>N</th><th>ANLS</th><th>95% CI</th><th>Exact Match</th><th>95% CI</th></tr>
+  {% for cat, vals in sc.category_breakdown.items() %}
+  <tr {% if cat == sc.weakest_category %}class="highlight"{% endif %}>
+    <td>{{ cat }}</td>
+    <td>{{ vals.n }}</td>
+    <td>{{ "%.4f"|format(vals.anls) }}</td>
+    <td>[{{ "%.4f"|format(vals.anls_ci[0]) }}, {{ "%.4f"|format(vals.anls_ci[1]) }}]</td>
+    <td>{{ "%.4f"|format(vals.exact_match) }}</td>
+    <td>[{{ "%.4f"|format(vals.exact_match_ci[0]) }}, {{ "%.4f"|format(vals.exact_match_ci[1]) }}]</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Failure Mode Distribution</h2>
+<table>
+  <tr><th>Failure Mode</th><th>Count</th><th>% of Failures</th></tr>
+  {% for label, count in sc.failure_mode_distribution.items() %}
+  <tr>
+    <td><span class="badge {% if label == 'numeric_mismatch' %}badge-red{% elif label == 'empty_output' %}badge-yellow{% elif label == 'manual_diagnosis_required' %}badge-gray{% else %}badge-blue{% endif %}">{{ label }}</span></td>
+    <td>{{ count }}</td>
+    <td>{{ "%.1f"|format(count / sc.total_failures * 100) }}%</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Top 5 Worst Failures</h2>
+<table>
+  <tr><th>Task ID</th><th>Category</th><th>Question</th><th>Gold</th><th>Prediction</th><th>Label</th></tr>
+  {% for f in sc.top_5_worst_failures %}
+  <tr>
+    <td>{{ f.task_id }}</td>
+    <td>{{ f.category }}</td>
+    <td class="truncate">{{ f.question }}</td>
+    <td>{{ f.gold_answer }}</td>
+    <td class="truncate">{{ f.prediction }}</td>
+    <td><span class="badge badge-red">{{ f.failure_label }}</span></td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% else %}
+
+<h2>Cross-Model Comparison</h2>
+<table>
+  <tr><th>Model</th><th>Overall ANLS</th><th>Overall EM</th>
+  {% for cat in comparison.categories %}<th>{{ cat }}</th>{% endfor %}
+  </tr>
+  {% for row in comparison.models %}
+  <tr>
+    <td><strong>{{ row.model }}</strong></td>
+    <td>{{ "%.4f"|format(row.overall_anls) }}</td>
+    <td>{{ "%.4f"|format(row.overall_exact_match) }}</td>
+    {% for cat in comparison.categories %}
+    <td>{{ "%.4f"|format(row[cat ~ '_anls']) }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+{% for sc in scorecards %}
+<h2>{{ sc.model }}</h2>
+<div class="stats-grid">
+  <div class="stat-card">
+    <div class="stat-value">{{ "%.1f"|format(sc.overall_anls * 100) }}%</div>
+    <div class="stat-label">ANLS</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ "%.1f"|format(sc.overall_exact_match * 100) }}%</div>
+    <div class="stat-label">Exact Match</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ sc.weakest_category }}</div>
+    <div class="stat-label">Weakest</div>
+  </div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+<div class="footer">
+  Generated by FinAgent-Eval | {{ generated_at }}
+</div>
+
+</div>
+</body>
+</html>
