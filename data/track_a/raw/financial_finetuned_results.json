@@ -1,0 +1,867 @@
+{
+  "model": "Pix2Struct LoRA financial fine-tuned",
+  "train_companies": [
+    "AAPL",
+    "AMZN",
+    "BAC",
+    "GS",
+    "JNJ",
+    "TSLA",
+    "XOM"
+  ],
+  "test_companies": [
+    "JPM",
+    "MSFT",
+    "WMT"
+  ],
+  "train_pairs": 307,
+  "test_pairs": 90,
+  "overall_anls": 0.16757667316439245,
+  "overall_em": 0.05555555555555555,
+  "per_type": {
+    "extractive": {
+      "anls": 0.20119883040935674,
+      "em": 0.09803921568627451,
+      "n": 51
+    },
+    "numerical_reasoning": {
+      "anls": 0.1,
+      "em": 0.0,
+      "n": 16
+    },
+    "layout_understanding": {
+      "anls": 0.13358918128654973,
+      "em": 0.0,
+      "n": 16
+    },
+    "chart_interpretation": {
+      "anls": 0.15476190476190474,
+      "em": 0.0,
+      "n": 7
+    }
+  },
+  "per_example": [
+    {
+      "ticker": "MSFT",
+      "question": "What was the total revenue for the three months ended December 31, 2025?",
+      "ground_truth": "81,273",
+      "prediction": "11,273",
+      "question_type": "extractive",
+      "anls": 0.8333333333333334,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the net income for the three months ended December 31, 2024?",
+      "ground_truth": "24,108",
+      "prediction": "14,916",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did total revenue increase from 2024 to 2025 for the three months ended December 31?",
+      "ground_truth": "16.7%",
+      "prediction": "1,273",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which line item appears immediately below \"Research and development\"?",
+      "ground_truth": "Sales and marketing",
+      "prediction": "16,459",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which contributed more to total revenue in 2025: Product or Service and other?",
+      "ground_truth": "Service and other",
+      "prediction": "Product",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What were the total assets as of December 31, 2025?",
+      "ground_truth": "665,302",
+      "prediction": "6,673,327",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What were the total current liabilities as of December 31, 2025?",
+      "ground_truth": "130,005",
+      "prediction": "1,313",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did total assets increase from June 30, 2025 to December 31, 2025?",
+      "ground_truth": "7.5%",
+      "prediction": "1.7%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.5,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which line item appears immediately below \"Accounts receivable, net\"?",
+      "ground_truth": "Inventories",
+      "prediction": "financial accounts",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which is larger as of December 31, 2025: total liabilities or total stockholders\u2019 equity?",
+      "ground_truth": "Total stockholders\u2019 equity",
+      "prediction": "Total liabilities",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the net cash from operations for the three months ended December 31, 2025?",
+      "ground_truth": "35,758",
+      "prediction": "22,,917",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the net cash used in financing for the three months ended December 31, 2024?",
+      "ground_truth": "(11,243)",
+      "prediction": "11,443",
+      "question_type": "extractive",
+      "anls": 0.625,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did net cash from operations increase from 2024 to 2025 for the three months ended December 31?",
+      "ground_truth": "60.4%",
+      "prediction": "1.8%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which section appears immediately after \"Operations\"?",
+      "ground_truth": "Financing",
+      "prediction": "Cash",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which activity had the largest cash outflow in 2025: financing or investing?",
+      "ground_truth": "Investing",
+      "prediction": "financing",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue for Intelligent Cloud for the three months ended December 31, 2025?",
+      "ground_truth": "32,907",
+      "prediction": "3,399",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue for More Personal Computing in 2024 for the three months ended December 31?",
+      "ground_truth": "14,651",
+      "prediction": "14,655",
+      "question_type": "extractive",
+      "anls": 0.8333333333333334,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did Intelligent Cloud revenue increase from 2024 to 2025 for the three months ended December 31?",
+      "ground_truth": "28.8%",
+      "prediction": "7.3%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which segment appears immediately below \"Intelligent Cloud\"?",
+      "ground_truth": "More Personal Computing",
+      "prediction": "Accounting",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which segment had the highest revenue in 2025 for the three months ended December 31?",
+      "ground_truth": "Productivity and Business Processes",
+      "prediction": "Operating income",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue from the United States for the three months ended December 31, 2025?",
+      "ground_truth": "41,410",
+      "prediction": "31,205",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue from Other countries in 2024 for the three months ended December 31?",
+      "ground_truth": "34,095",
+      "prediction": "65,767",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did revenue from the United States increase from 2024 to 2025 for the three months ended December 31?",
+      "ground_truth": "16.5%",
+      "prediction": "41,410",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which row appears immediately below \"United States\"?",
+      "ground_truth": "Other countries",
+      "prediction": "United States",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which contributed more to total revenue in 2025 for the three months ended December 31: United States or Other countries?",
+      "ground_truth": "United States",
+      "prediction": "United States",
+      "question_type": "extractive",
+      "anls": 1.0,
+      "exact_match": 1.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue from Server products and cloud services for the three months ended December 31, 2025?",
+      "ground_truth": "30,865",
+      "prediction": "3,025",
+      "question_type": "extractive",
+      "anls": 0.5,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the revenue from LinkedIn in 2024 for the three months ended December 31?",
+      "ground_truth": "4,587",
+      "prediction": "4,587",
+      "question_type": "extractive",
+      "anls": 1.0,
+      "exact_match": 1.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "By what percentage did Server products and cloud services revenue increase from 2024 to 2025 for the three months ended December 31?",
+      "ground_truth": "30.6%",
+      "prediction": "3.7%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.6,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which category appears immediately below \"Gaming\"?",
+      "ground_truth": "LinkedIn",
+      "prediction": "Enterprise",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "MSFT",
+      "question": "Which category had the highest revenue in 2025 for the three months ended December 31?",
+      "ground_truth": "Server products and cloud services",
+      "prediction": "Microsoft",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What type of chart is shown?",
+      "ground_truth": "Line chart",
+      "prediction": "CHART",
+      "question_type": "chart_interpretation",
+      "anls": 0.5,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which investment shows the highest cumulative return by 2026?",
+      "ground_truth": "Walmart Inc.",
+      "prediction": "Walmart",
+      "question_type": "chart_interpretation",
+      "anls": 0.5833333333333333,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What is the approximate cumulative return of Walmart Inc. in 2026?",
+      "ground_truth": "Around 270",
+      "prediction": "2025",
+      "question_type": "chart_interpretation",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which index performs the lowest around 2023?",
+      "ground_truth": "S&P 500 Consumer Discretionary Distribution & Retailing Index",
+      "prediction": "Walmart",
+      "question_type": "chart_interpretation",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which performs better at the end of the period: Walmart Inc. or S&P 500 Index?",
+      "ground_truth": "Walmart Inc.",
+      "prediction": "Consumer Discretionary Distribution & Retailing Index",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the total revenues for 2026?",
+      "ground_truth": "713,163",
+      "prediction": "164,838",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the operating income for 2025?",
+      "ground_truth": "29,348",
+      "prediction": "16,387",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "By how much did consolidated net income attributable to Walmart increase from 2024 to 2026?",
+      "ground_truth": "6,382",
+      "prediction": "1,243",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which line item appears directly after \"Operating income\"?",
+      "ground_truth": "Interest",
+      "prediction": "Investing policy, general and administration systems",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which contributed more to total revenues in 2026: Net sales or Membership and other income?",
+      "ground_truth": "Net sales",
+      "prediction": "Net sales",
+      "question_type": "extractive",
+      "anls": 1.0,
+      "exact_match": 1.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What were the total assets in 2026?",
+      "ground_truth": "284,668",
+      "prediction": "13,443",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What were the total current liabilities in 2025?",
+      "ground_truth": "96,584",
+      "prediction": "18,337",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "By how much did total Walmart shareholders' equity increase from 2025 to 2026?",
+      "ground_truth": "8,604",
+      "prediction": "1,837",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which line item appears directly after \"Inventories\"?",
+      "ground_truth": "Prepaid expenses and other",
+      "prediction": "(Inventures)",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which is larger in 2026: total current assets or total current liabilities?",
+      "ground_truth": "Total current liabilities",
+      "prediction": "Total current assets",
+      "question_type": "extractive",
+      "anls": 0.6799999999999999,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the net cash provided by operating activities in 2026?",
+      "ground_truth": "41,565",
+      "prediction": "1,300",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the net cash used in investing activities in 2025?",
+      "ground_truth": "(21,379)",
+      "prediction": "2,376",
+      "question_type": "extractive",
+      "anls": 0.5,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "By how much did cash, cash equivalents and restricted cash increase from 2025 to 2026?",
+      "ground_truth": "1,785",
+      "prediction": "13,139",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which section appears directly after \"Cash flows from operating activities\"?",
+      "ground_truth": "Cash flows from investing activities",
+      "prediction": "Cash flows from operating activities",
+      "question_type": "layout_understanding",
+      "anls": 0.8611111111111112,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which activity used more cash in 2026: investing activities or financing activities?",
+      "ground_truth": "Investing activities",
+      "prediction": "Investing activities",
+      "question_type": "extractive",
+      "anls": 1.0,
+      "exact_match": 1.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the total revenues for Walmart U.S. in 2026?",
+      "ground_truth": "485,599",
+      "prediction": "13,338",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was the operating income for Walmart International in 2025?",
+      "ground_truth": "5,501",
+      "prediction": "10,338",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "By how much did total revenues for Sam's Club U.S. increase from 2024 to 2026?",
+      "ground_truth": "7,310",
+      "prediction": "14,338",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which segment reports an operating loss?",
+      "ground_truth": "Corporate and support",
+      "prediction": "Asset management",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "WMT",
+      "question": "Which section appears directly after \"Walmart International\"?",
+      "ground_truth": "Sam's Club U.S.",
+      "prediction": "Walmart International",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the total net revenue in 2025?",
+      "ground_truth": "182,447",
+      "prediction": "7,338",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the net income in 2024?",
+      "ground_truth": "58,471",
+      "prediction": "1,703",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did total net revenue increase from 2024 to 2025?",
+      "ground_truth": "2.8%",
+      "prediction": "1.7%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.5,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which line item appears immediately below \"Interest expense\"?",
+      "ground_truth": "Net interest income",
+      "prediction": "Invested income",
+      "question_type": "layout_understanding",
+      "anls": 0.5263157894736843,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which is higher in 2025: net interest income or noninterest revenue?",
+      "ground_truth": "Net interest income",
+      "prediction": "Interest income",
+      "question_type": "extractive",
+      "anls": 0.7894736842105263,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What were the total assets in 2025?",
+      "ground_truth": "4,424,900",
+      "prediction": "6,363",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What were the total liabilities in 2024?",
+      "ground_truth": "3,658,056",
+      "prediction": "1,01,338",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did total assets increase from 2024 to 2025?",
+      "ground_truth": "10.6%",
+      "prediction": "3.7%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which section appears immediately below \"Total assets\"?",
+      "ground_truth": "Liabilities",
+      "prediction": "Total assets",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which is larger in 2025: total liabilities or total stockholders\u2019 equity?",
+      "ground_truth": "Total liabilities",
+      "prediction": "Total liabilities",
+      "question_type": "extractive",
+      "anls": 1.0,
+      "exact_match": 1.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the net income in 2025?",
+      "ground_truth": "57,048",
+      "prediction": "3,718",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the net cash used in operating activities in 2024?",
+      "ground_truth": "(42,012)",
+      "prediction": "13,000",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did net cash provided by financing activities increase from 2024 to 2025?",
+      "ground_truth": "325.0%",
+      "prediction": "1,080",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which section appears immediately after \"Operating activities\"?",
+      "ground_truth": "Investing activities",
+      "prediction": "Operating activities",
+      "question_type": "layout_understanding",
+      "anls": 0.75,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which activity generated the highest cash inflow in 2025: operating, investing, or financing?",
+      "ground_truth": "Financing",
+      "prediction": "Investing",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the total loan balance in 2025?",
+      "ground_truth": "1,493,429",
+      "prediction": "1,200,887",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the credit card loan balance in 2024?",
+      "ground_truth": "232,860",
+      "prediction": "1,323",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did wholesale loans increase from 2024 to 2025?",
+      "ground_truth": "16.8%",
+      "prediction": "7%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which segment appears immediately to the right of \"Credit card\"?",
+      "ground_truth": "Wholesale",
+      "prediction": "Customer, including credit card",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which segment had the highest total loan balance in 2025?",
+      "ground_truth": "Wholesale",
+      "prediction": "The credit card issuer market",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the total revenue in 2025?",
+      "ground_truth": "182,447",
+      "prediction": "1,478",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the net income for North America in 2024?",
+      "ground_truth": "46,631",
+      "prediction": "1,371",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did total international revenue increase from 2024 to 2025?",
+      "ground_truth": "11.8%",
+      "prediction": "7.3%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which region appears directly below \"Asia-Pacific\"?",
+      "ground_truth": "Latin America/Caribbean",
+      "prediction": "Asia Pacific",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which region contributed the most to total revenue in 2025?",
+      "ground_truth": "North America",
+      "prediction": "United",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the net income for Commercial & Investment Bank in 2025?",
+      "ground_truth": "27,761",
+      "prediction": "1,706",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the total net revenue across all business segments in 2024?",
+      "ground_truth": "177,556",
+      "prediction": "1.2,488",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "By what percentage did Asset & Wealth Management net income increase from 2024 to 2025?",
+      "ground_truth": "20.3%",
+      "prediction": "1.1%",
+      "question_type": "numerical_reasoning",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which segment appears immediately to the right of \"Commercial & Investment Bank\"?",
+      "ground_truth": "Asset & Wealth Management",
+      "prediction": "Commercial & Investment Bank",
+      "question_type": "layout_understanding",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which business segment had the highest net income in 2025?",
+      "ground_truth": "Commercial & Investment Bank",
+      "prediction": "United Bank & Markets",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What type of chart is shown?",
+      "ground_truth": "Line chart",
+      "prediction": "(Interactive) Chart",
+      "question_type": "chart_interpretation",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which investment had the highest value in 2025?",
+      "ground_truth": "JPMorgan Chase",
+      "prediction": "Investing funds",
+      "question_type": "chart_interpretation",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "What was the value of JPMorgan Chase in 2025?",
+      "ground_truth": "289.18",
+      "prediction": "19.99",
+      "question_type": "extractive",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which index had the lowest value in 2025?",
+      "ground_truth": "KBW Bank Index",
+      "prediction": "Indices",
+      "question_type": "chart_interpretation",
+      "anls": 0.0,
+      "exact_match": 0.0
+    },
+    {
+      "ticker": "JPM",
+      "question": "Which performed better in 2025: S&P 500 Index or S&P Financials Index?",
+      "ground_truth": "S&P Financials Index",
+      "prediction": "S&P 500 Index",
+      "question_type": "extractive",
+      "anls": 0.5,
+      "exact_match": 0.0
+    }
+  ],
+  "train_losses": [
+    4.2295868595772355,
+    2.745673101286158,
+    2.350458831565776,
+    2.0623289270611656,
+    1.8971208460228548,
+    1.775880849729095,
+    1.6768192810549458,
+    1.591034829404193,
+    1.5146166081934658,
+    1.4264463079874843
+  ]
+}
