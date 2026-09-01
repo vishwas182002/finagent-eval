@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use FinAgent-Eval, please cite it as below."
+title: "FinAgent-Eval: An evaluation harness for financial document VQA"
+version: 0.2.0
+date-released: 2026-09-01
+license: MIT
+repository-code: "https://github.com/vishwas182002/finagent-eval"
+url: "https://finagent-eval.streamlit.app/"
+authors:
+  - family-names: Kothari
+    given-names: Vishwas
+keywords:
+  - document AI
+  - visual question answering
+  - financial documents
+  - vision-language models
+  - benchmark
