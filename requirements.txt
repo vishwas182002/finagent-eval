@@ -1,0 +1,11 @@
+# Pinned runtime set used by CI and Streamlit Community Cloud.
+# The package itself (graders + pipeline) only needs jinja2; the rest is the dashboard.
+# For development: pip install -e ".[dev]"
+-e .
+jinja2==3.1.6
+pandas==3.0.2; python_version >= "3.11"
+pandas==2.3.3; python_version < "3.11"   # pandas 3.x requires Python 3.11+
+plotly==7.0.0
+streamlit==1.63.0
+pytest==9.1.1
+ruff==0.16.5

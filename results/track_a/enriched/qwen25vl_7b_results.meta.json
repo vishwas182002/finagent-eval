@@ -1,0 +1,30 @@
+{
+  "model": "Qwen2.5-VL-7B-Instruct",
+  "adapter": "finagent_eval.adapters.qwen_vl:QwenVLAdapter",
+  "adapter_metadata": {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "quantization": "bitsandbytes nf4, double-quant, fp16 compute",
+    "decoding": {
+      "do_sample": false,
+      "max_new_tokens": 64,
+      "oom_retry_max_new_tokens": 32
+    },
+    "image_pixels": {
+      "min": 200704,
+      "max": 802816
+    },
+    "prompt_template": "Answer the question using only the document image. Return only the final answer, with no explanation.\n\nQuestion: {question}",
+    "revision": null
+  },
+  "n_tasks": 397,
+  "tasks_sha256": "319308ec4e2b3967c82b5770f91bed090909e7f0c0929544eedb6dc5e9a376c6",
+  "started_at": null,
+  "finished_at": null,
+  "finagent_eval_version": "0.1.0",
+  "grader_version": "n/a (raw predictions; graded at enrichment time)",
+  "git_sha": null,
+  "python": "3.11 (Google Colab)",
+  "platform": "Google Colab, NVIDIA T4 16GB",
+  "provenance": "Run once in notebooks/finagent_eval_qwen_vl_inference.ipynb (cells 3-5). Timestamps were not recorded by the original run; this sidecar was reconstructed from the notebook's settings.",
+  "adapter_errors": 0
+}

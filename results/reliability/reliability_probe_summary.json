@@ -1,0 +1,62 @@
+{
+  "grader_version": "2.0",
+  "n_tasks": 25,
+  "variants_per_task": 4,
+  "answer_consistency": {
+    "count": 11,
+    "total": 25,
+    "rate": 0.44
+  },
+  "correctness_stability": {
+    "count": 18,
+    "total": 25,
+    "rate": 0.72
+  },
+  "original_accuracy": {
+    "count": 15,
+    "total": 25,
+    "rate": 0.6
+  },
+  "all_variants_correct": {
+    "count": 9,
+    "total": 25,
+    "rate": 0.36
+  },
+  "any_variant_correct": {
+    "count": 16,
+    "total": 25,
+    "rate": 0.64
+  },
+  "by_category": {
+    "chart_interpretation": {
+      "n": 5,
+      "consistent": 2,
+      "all_correct": 1,
+      "original_correct": 3
+    },
+    "extractive": {
+      "n": 8,
+      "consistent": 4,
+      "all_correct": 3,
+      "original_correct": 5
+    },
+    "layout_understanding": {
+      "n": 6,
+      "consistent": 5,
+      "all_correct": 5,
+      "original_correct": 6
+    },
+    "numerical_reasoning": {
+      "n": 6,
+      "consistent": 0,
+      "all_correct": 0,
+      "original_correct": 1
+    }
+  },
+  "category_counts": {
+    "extractive": 8,
+    "layout_understanding": 6,
+    "numerical_reasoning": 6,
+    "chart_interpretation": 5
+  }
+}
