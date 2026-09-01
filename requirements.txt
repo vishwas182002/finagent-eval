@@ -1,5 +1,0 @@
-pandas
-plotly
-streamlit
-jinja2
-pytest
